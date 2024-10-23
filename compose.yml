@@ -1,0 +1,18 @@
+
+services:
+  test-unit:
+     container_name: test-unit
+     image: mysql:8.4.3
+     restart: always
+     environment:
+      MYSQL_ROOT_PASSWORD: test
+
+     ports:
+      - 3306:3306
+
+  adminer:
+        container_name: adminer-4.8.0-standalone
+        image: adminer:4.8.0-standalone
+        restart: always
+        ports:
+        - 8383:8080
