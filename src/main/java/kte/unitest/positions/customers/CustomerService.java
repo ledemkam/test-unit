@@ -26,7 +26,7 @@ public class CustomerService {
 
     public  CustomerDTO read(int id) {
         Customer customer  =  this.customerRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Customer not found "  + id));
         return new CustomerDTO(customer.getId(), customer.getEmail());
     }
 
