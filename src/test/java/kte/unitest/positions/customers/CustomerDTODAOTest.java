@@ -12,7 +12,7 @@ import java.util.List;
 
 @JdbcTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-class CustomerDAOTest {
+class CustomerDTODAOTest {
 
    @Autowired
     JdbcTemplate jdbcTemplate;
@@ -28,12 +28,12 @@ class CustomerDAOTest {
 
 
         // Act ou  When -> il sert  à appeler la méthode à tester
-        List<Customer> customerList =  this.customerDAO.search();
+        List<CustomerDTO> customerDTOList =  this.customerDAO.search();
 
 
 
         // Assert ou Then -> vérifier si le résultat est correct
-        Assertions.assertEquals(7, customerList.size());
+        Assertions.assertEquals(7, customerDTOList.size());
 
     }
 }

@@ -10,14 +10,14 @@ import java.util.List;
 public class CustmerDAO {
     private final JdbcTemplate jdbcTemplate;
     private final static String FIND_ALL = "SELECT * FROM customers";
-    private RowMapper<Customer> customerRowMapper =
-            (rs, name) -> new Customer(rs.getInt("id"), rs.getString("email"));
+    private RowMapper<CustomerDTO> customerRowMapper =
+            (rs, name) -> new CustomerDTO(rs.getInt("id"), rs.getString("email"));
 
     public CustmerDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Customer> search() {
+    public List<CustomerDTO> search() {
         return this.jdbcTemplate.query(FIND_ALL, customerRowMapper);
     }
 }
